@@ -11,7 +11,8 @@ async function getSpeakerInfo(slug) {
   let speakersList = await speakers.json();
   speakersList = speakersList.speakers;
 
-  return getSpeakerDetails(speakersList, atob(slug));
+  //where atob(slug) = a to be funct to convert the slug - is the method of the window interface that decode the id the we passed from the speakers page
+  return getSpeakerDetails(speakersList, atob(slug)); 
 }
 
 function getSpeakerDetails(speakers, speakerId) {

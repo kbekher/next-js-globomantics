@@ -11,7 +11,7 @@ export default function Page() {
           alt="Out story pic"
           placeholder="blur"
           quality={100}
-          sizes="100vw"
+          sizes={"100vw"}
           fill
           style={{
             objectFit: "cover",

@@ -6,7 +6,8 @@ export let speakerJson = {};
 // Static data fetching
 async function fetchSpeakers() {
   const response = await fetch(
-    "https://raw.githubusercontent.com/adhithiravi/Consuming-GraphqL-Apollo/master/api/data/speakers.json"
+    "https://raw.githubusercontent.com/adhithiravi/Consuming-GraphqL-Apollo/master/api/data/speakers.json",
+    // { next: { revalidate: 20 }} // fetch with revalidation
   );
 
   const data = await response.json();
@@ -23,11 +24,16 @@ export default async function Page() {
         Last Rendered: {new Date().toLocaleTimeString()}
       </div>
       <h1>Welcome to Globomantics Speakers</h1>
+
+      <Link href="/conference" className={styles.backLinks}>
+        Back to Conference Page
+      </Link>
+
       {data.speakers.map(({ id, name, bio }) => (
         <div key={id} className={styles.infoContainer}>
           <Link
             className={styles.bgLinks}
-            href={`/conference/speakers/${btoa(id)}`}
+            href={`/conference/speakers/${btoa(id)}`} //btoa - encodes the slug
           >
             <h3 className={styles.titleText}>{name}</h3>
           </Link>

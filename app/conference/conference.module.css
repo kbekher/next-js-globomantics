@@ -29,6 +29,12 @@
   text-decoration: none;
   color: #fff;
 }
+
+.backLinks {
+  text-decoration: none;
+  color: #212121;
+}
+
 .parentContainer {
   margin: 50px;
 }
